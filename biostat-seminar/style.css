@@ -1,0 +1,61 @@
+.content {
+  font-family: Georgia;
+}
+
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size: 2.5em;
+}
+p {
+  font-size: 1.7em;
+  margin: 2em 0;
+}
+
+.titlepage h1 {
+  margin-bottom: 2.5em;
+}
+
+.example {
+  border: 1px solid black;
+  float: left;
+  border-radius: 10px;
+  margin: 0 0 0 2.5em;
+}
+.example h3 {
+  background-color: lightgreen;
+  margin: 0 0 0.5em;
+  padding: 0.3em 0 0.3em 0.5em;
+  border-radius: 10px 10px 0 0;
+  text-align: left;
+}
+.example.bad h3 {
+  background-color: red;
+  color: white;
+}
+.example table {
+  margin: 1em;
+  border-collapse: separate;
+}
+.example table th,
+.example table td {
+  padding: 0.3em;
+  margin: 0.1em;
+  font-size: 1.5em;
+  font-family: monospace;
+  text-align: right;
+  border: 2px solid transparent;
+  border-radius: 5px;
+}
+
+.hide_images img {
+  display: none;
+  position: absolute;
+  top: 134px;
+  left: 262px;
+}
+
+.examples-2 {
+  margin: 0 0 0 2em;
+}
