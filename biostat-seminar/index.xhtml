@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <title>Record Linkage with Coupler</title>
+  <meta name="copyright" content="Copyright &#169; 2011 Vanderbilt University" />
+  <link rel="stylesheet" type="text/css" media="screen, projection, print" href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+  <style type="text/css">
+    .examples {
+      list-style-type: none;
+      margin-left: 0;
+    }
+    .example {
+      list-style: none;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin: 0 0.5em 0.5em 0;
+      float: left;
+    }
+    .example h3 {
+      background-color: lightgreen;
+      margin: 0;
+      padding: 0.3em 0 0.3em 0.5em;
+      border-radius: 10px 10px 0 0;
+      text-align: left;
+    }
+    .example.warning h3 {
+      background-color: yellow;
+    }
+    .example table {
+      margin: 0.1em 0;
+      border-collapse: collapse;
+    }
+    .example table th,
+    .example table td {
+      padding: 0.2em 0.4em;
+      margin: 0.1em;
+      font-family: monospace;
+      text-align: right;
+    }
+    .example table th { border-bottom: 2px solid #bbb; }
+    .example table td { border-bottom: 1px solid #ddd; }
+    .example table tr.bottom td { border-bottom: 0; }
+  </style>
+</head>
+<body>
+  <div class="slide cover">
+    <h1>Record Linkage with Coupler</h1>
+    <p>
+      <a href="http://biostat.mc.vanderbilt.edu/JeremyStephens">Jeremy Stephens</a>
+      (<a href="mailto:jeremy.stephens@vanderbilt.edu">jeremy.stephens@vanderbilt.edu</a>)
+    </p>
+    <p>
+      Vanderbilt University<br/>
+      Department of Biostatistics
+    </p>
+    <p>
+      May 25, 2011
+    </p>
+    <!-- As always, to first understand the solution, you must first understand the problem. -->
+  </div>
+  <div class="slide">
+    <h1>The Problem</h1>
+
+    Consider these two datasets.
+
+    <ul class="examples">
+      <li class="example">
+        <h3>Demographics</h3>
+        <table>
+          <thead>
+            <tr><th>id</th><th class="alt">first</th><th>last</th><th class="alt">ssn</th><th>dob</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td class="alt">Bonnie</td><td>Young</td><td class="alt">043252467</td><td>1960-04-08</td></tr>
+            <tr class="alt"><td>2</td><td class="alt">Bobby</td><td>Fowler</td><td class="alt">793237347</td><td>1976-01-27</td></tr>
+            <tr class="bottom"><td>3</td><td class="alt">Stephanie</td><td>Diaz</td><td class="alt">750770158</td><td>1985-07-21</td></tr>
+          </tbody>
+        </table>
+      </li>
+
+      <li class="example">
+        <h3>Visits</h3>
+        <table>
+          <thead>
+            <tr><th>id</th><th>num</th><th>temp</th><th>sys</th><th>dia</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td class="alt">1</td><td>97</td><td class="alt">128</td><td>81</td></tr>
+            <tr class="alt"><td>1</td><td class="alt">2</td><td>96</td><td class="alt">131</td><td>80</td></tr>
+            <tr><td>2</td><td class="alt">1</td><td>96</td><td class="alt">121</td><td>72</td></tr>
+            <tr class="alt"><td>3</td><td class="alt">1</td><td>95</td><td class="alt">114</td><td>73</td></tr>
+            <tr class="bottom"><td>3</td><td class="alt">2</td><td>102</td><td class="alt">114</td><td>71</td></tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </div>
+  <div class="slide">
+    <h1>The Problem</h1>
+
+    Consider these two datasets.
+
+    <ul class="examples">
+      <li class="example">
+        <h3>Demographics</h3>
+        <table>
+          <thead>
+            <tr><th>id</th><th class="alt">first</th><th>last</th><th class="alt">ssn</th><th>dob</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td class="alt">Bonnie</td><td>Young</td><td class="alt">043252467</td><td>1960-04-08</td></tr>
+            <tr class="alt"><td>2</td><td class="alt">Bobby</td><td>Fowler</td><td class="alt">793237347</td><td>1976-01-27</td></tr>
+            <tr class="bottom"><td>3</td><td class="alt">Stephanie</td><td>Diaz</td><td class="alt">750770158</td><td>1985-07-21</td></tr>
+          </tbody>
+        </table>
+      </li>
+
+      <li class="example warning">
+        <h3>Visits</h3>
+        <table>
+          <thead>
+            <tr><th>ssn</th><th class="alt">num</th><th>temp</th><th class="alt">sys</th><th>dia</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>043252467</td><td class="alt">1</td><td>97</td><td class="alt">128</td><td>81</td></tr>
+            <tr><td><span class="highlight">&nbsp;</span>43252467</td><td class="alt">2</td><td>96</td><td class="alt">131</td><td>80</td></tr>
+            <tr><td>793237347</td><td class="alt">1</td><td>96</td><td class="alt">121</td><td>72</td></tr>
+            <tr><td>750770158</td><td class="alt">1</td><td>95</td><td class="alt">114</td><td>73</td></tr>
+            <tr><td>75<span class="highlight">9</span>0770158</td><td class="alt">2</td><td>102</td><td class="alt">114</td><td>71</td></tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </div>
+  <div class="slide">
+    <h1>The Problem</h1>
+
+    Consider these two datasets.
+
+    <ul class="examples">
+      <li class="example">
+        <h3>Demographics</h3>
+        <table>
+          <thead>
+            <tr><th>id</th><th class="alt">first</th><th>last</th><th class="alt">ssn</th><th>dob</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td class="alt">Bonnie</td><td>Young</td><td class="alt">043252467</td><td>1960-04-08</td></tr>
+            <tr class="alt"><td>2</td><td class="alt">Bobby</td><td>Fowler</td><td class="alt">793237347</td><td>1976-01-27</td></tr>
+            <tr class="bottom"><td>3</td><td class="alt">Stephanie</td><td>Diaz</td><td class="alt">750770158</td><td>1985-07-21</td></tr>
+          </tbody>
+        </table>
+      </li>
+
+      <li class="example warning">
+        <h3>Visits</h3>
+        <table>
+          <thead>
+            <tr><th>first</th><th class="alt">last</th><th>num</th><th class="alt">temp</th><th>sys</th><th class="alt">dia</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Bonnie</td><td class="alt">Young</td><td>1</td><td class="alt">97</td><td>128</td><td class="alt">81</td></tr>
+            <tr class="alt"><td>Bonny</td><td class="alt">Young</td><td>2</td><td class="alt">96</td><td>131</td><td class="alt">80</td></tr>
+            <tr><td>Bob</td><td class="alt">Fowler</td><td>1</td><td class="alt">96</td><td>121</td><td class="alt">72</td></tr>
+            <tr class="alt"><td>Ste<span class="highlight">f</span>anie</td><td class="alt">Diaz</td><td>1</td><td class="alt">95</td><td>114</td><td class="alt">73</td></tr>
+            <tr><td>Stephanie</td><td class="alt">Dia<span class="highlight">s</span></td><td>2</td><td class="alt">102</td><td>114</td><td class="alt">71</td></tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </div>
+  <div class="slide">
+    <h1>Solutions</h1>
+    <ul class="incremental">
+      <li>Ask for better data</li>
+      <li>Human intervention</li>
+      <li>Tailor-made code</li>
+      <li>
+        Generalized software
+        <ul class="incremental">
+          <li>FEBRL</li>
+          <li>FRIL</li>
+          <li>Link King (SAS)</li>
+          <li>Enterprise</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="slide">
+    <h1>Our Goals</h1>
+    <ul class="incremental">
+      <li>Open source</li>
+      <li>Cross platform</li>
+      <li>Easy to install</li>
+      <li>Easy to use</li>
+    </ul>
+  </div>
+  <div class="slide">
+    <h1>Coupler</h1>
+    <img src="images/768px-Train_coupling.jpg" alt="Train coupling" />
+  </div>
+  <div class="handout">
+    Coupler is a desktop application that you interact with through your web
+    browser. We decided to use a web interface because most people know how to
+    use a browser, and almost every computer has a browser installed.  Java is
+    also very common, and many times it's already installed. Java gives us the
+    power of a cross platform infrastructure.
+  </div>
+  <div class="slide">
+    <h1>Fueled by Open Source</h1>
+    <ul>
+      <li><a href="http://www.java.com">Java</a></li>
+      <li><a href="http://jruby.org">JRuby</a></li>
+      <li><a href="http://sequel.rubyforge.org">Sequel</a></li>
+      <li><a href="http://h2database.com">H2</a></li>
+      <li><a href="http://sinatrarb.com">Sinatra</a></li>
+      <li><a href="http://rubygems.org/gems/mongrel">Mongrel</a></li>
+    </ul>
+  </div>
+  <div class="slide">
+    <h1>Terminology</h1>
+    <ul>
+      <li>Project</li>
+      <li>
+        Resource
+        <ul>
+          <li>Transformer</li>
+          <li>Transformation</li>
+        </ul>
+      </li>
+      <li>Scenario</li>
+    </ul>
+  </div>
+  <div class="slide">
+    <h1>How It Works</h1>
+  </div>
+  <div class="slide">
+    <h1>Future Goals</h1>
+  </div>
+</body>
+</html>
