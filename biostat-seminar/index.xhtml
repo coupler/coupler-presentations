@@ -5,8 +5,8 @@
 <head>
   <title>Record Linkage with Coupler</title>
   <meta name="copyright" content="Copyright &#169; 2011 Vanderbilt University" />
-  <link rel="stylesheet" type="text/css" media="screen, projection, print" href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
-  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print" href="../slidy.css" />
+  <script src="../slidy.js" charset="utf-8" type="text/javascript"></script>
   <style type="text/css">
     .examples {
       list-style-type: none;
@@ -43,6 +43,8 @@
     .example table th { border-bottom: 2px solid #bbb; }
     .example table td { border-bottom: 1px solid #ddd; }
     .example table tr.bottom td { border-bottom: 0; }
+
+    img.border { border: 1px solid black; }
   </style>
 </head>
 <body>
@@ -99,7 +101,7 @@
     </ul>
   </div>
   <div class="slide">
-    <h1>The Problem</h1>
+    <h1>The Problem (cont.)</h1>
 
     Consider these two datasets.
 
@@ -136,7 +138,7 @@
     </ul>
   </div>
   <div class="slide">
-    <h1>The Problem</h1>
+    <h1>The Problem (cont.)</h1>
 
     Consider these two datasets.
 
@@ -164,7 +166,7 @@
           <tbody>
             <tr><td>Bonnie</td><td class="alt">Young</td><td>1</td><td class="alt">97</td><td>128</td><td class="alt">81</td></tr>
             <tr class="alt"><td>Bonny</td><td class="alt">Young</td><td>2</td><td class="alt">96</td><td>131</td><td class="alt">80</td></tr>
-            <tr><td>Bob</td><td class="alt">Fowler</td><td>1</td><td class="alt">96</td><td>121</td><td class="alt">72</td></tr>
+            <tr><td>Bobbie</td><td class="alt">Fowler</td><td>1</td><td class="alt">96</td><td>121</td><td class="alt">72</td></tr>
             <tr class="alt"><td>Ste<span class="highlight">f</span>anie</td><td class="alt">Diaz</td><td>1</td><td class="alt">95</td><td>114</td><td class="alt">73</td></tr>
             <tr><td>Stephanie</td><td class="alt">Dia<span class="highlight">s</span></td><td>2</td><td class="alt">102</td><td>114</td><td class="alt">71</td></tr>
           </tbody>
@@ -175,7 +177,7 @@
   <div class="slide">
     <h1>Solutions</h1>
     <ul class="incremental">
-      <li>Ask for better data</li>
+      <li>Get better data</li>
       <li>Human intervention</li>
       <li>Tailor-made code</li>
       <li>
@@ -221,21 +223,85 @@
     </ul>
   </div>
   <div class="slide">
-    <h1>Terminology</h1>
-    <ul>
-      <li>Project</li>
+    <h1>How To Use</h1>
+    <ul class="incremental">
+      <li>Two Parts: Launcher and Application</li>
       <li>
-        Resource
-        <ul>
-          <li>Transformer</li>
-          <li>Transformation</li>
-        </ul>
+        Launcher (<a href="http://github.com/coupler/coupler-launcher/downloads">http://github.com/coupler/coupler-launcher/downloads</a>)
+        <p>
+          <img src="images/github-launcher-download.png" alt="Github launcher download" class="border" />
+        </p>
       </li>
-      <li>Scenario</li>
+      <li>Application (<em>downloaded automatically</em>)</li>
     </ul>
   </div>
   <div class="slide">
-    <h1>How It Works</h1>
+    <h1>Launcher</h1>
+    <img src="images/launcher-splash.png" alt="Launcher Splash Screen" class="border" />
+  </div>
+  <div class="slide">
+    <h1>Launcher (cont.)</h1>
+    <img src="images/launcher-tray-icon.png" alt="Launcher Tray Icon" class="border" />
+  </div>
+  <div class="slide">
+    <h1>First Start</h1>
+    <img src="images/coupler-first-start.png" alt="First Start" class="border" />
+  </div>
+  <div class="slide">
+    <h1>Create a Project</h1>
+    <img src="images/coupler-new-project.png" alt="New Project" class="border" />
+  </div>
+  <div class="slide">
+    <h1>New Resource: Database</h1>
+    <img src="images/coupler-new-database-resource.png" alt="New Resource: Database" class="border" />
+  </div>
+  <div class="slide">
+    <h1>Database Resource: Select Fields</h1>
+    <img src="images/coupler-pick-fields.png" alt="Select Database Fields" class="border" />
+  </div>
+  <div class="slide">
+    <h1>Demographics Resource</h1>
+    <img src="images/coupler-resource-page.png" alt="Resource Page" class="border" />
+  </div>
+  <div class="slide">
+    <h1>New Resource: CSV</h1>
+    <img src="images/coupler-new-csv-resource.png" alt="New Resource: CSV" class="border" />
+  </div>
+  <div class="slide">
+    <h1>CSV Resource: Choosing Data Types</h1>
+    <img src="images/coupler-import-csv.png" alt="Importing a CSV" class="border" />
+  </div>
+  <div class="slide">
+    <h1>Visits Resource</h1>
+    <img src="images/coupler-resource-visits.png" alt="Visits Resources" class="border" />
+  </div>
+  <div class="slide">
+    <h1>New Transformation</h1>
+    <img src="images/coupler-new-transformation-field.png" alt="Choose Field to Transform" class="border" />
+  </div>
+  <div class="slide">
+    <h1>New Transformation (cont.)</h1>
+    <img src="images/coupler-new-transformation-code.png" alt="Transformation Code" class="border" />
+  </div>
+  <div class="slide">
+    <h1>Out of Date Resource</h1>
+    <img src="images/coupler-out-of-date-resource.png" alt="Out of Date Resources" class="border" />
+  </div>
+  <div class="slide">
+    <h1>A Second Transformation</h1>
+    <img src="images/coupler-transformation-2.png" alt="Second Transformation" class="border" />
+  </div>
+  <div class="slide">
+    <h1>Time to Transform</h1>
+    <img src="images/coupler-out-of-date-2.png" alt="Out of Date Resource (Again)" class="border" />
+  </div>
+  <div class="slide">
+    <h1>Transformed Resource</h1>
+    <img src="images/coupler-transformed-resource.png" alt="Transformed Resource" class="border" />
+  </div>
+  <div class="slide">
+    <h1>Current Project Status</h1>
+    <img src="images/coupler-project-status.png" alt="Project Status" class="border" />
   </div>
   <div class="slide">
     <h1>Future Goals</h1>
