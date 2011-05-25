@@ -18,6 +18,7 @@
       border-radius: 10px;
       margin: 0 0.5em 0.5em 0;
       float: left;
+      clear: both;
     }
     .example h3 {
       background-color: lightgreen;
@@ -50,11 +51,10 @@
 <body>
   <div class="slide cover">
     <h1>Record Linkage with Coupler</h1>
-    <p>
+    <p style="margin-top: 5em">
       <a href="http://biostat.mc.vanderbilt.edu/JeremyStephens">Jeremy Stephens</a>
-      (<a href="mailto:jeremy.stephens@vanderbilt.edu">jeremy.stephens@vanderbilt.edu</a>)
-    </p>
-    <p>
+      (<a href="mailto:jeremy.stephens@vanderbilt.edu">jeremy.stephens@vanderbilt.edu</a>)<br/>
+      Computer Systems Analyst II<br/>
       Vanderbilt University<br/>
       Department of Biostatistics
     </p>
@@ -198,6 +198,7 @@
       <li>Cross platform</li>
       <li>Easy to install</li>
       <li>Easy to use</li>
+      <li>Low collaboration cost</li>
     </ul>
   </div>
   <div class="slide">
@@ -223,7 +224,7 @@
     </ul>
   </div>
   <div class="slide">
-    <h1>How To Use</h1>
+    <h1>Modular Design</h1>
     <ul class="incremental">
       <li>Two Parts: Launcher and Application</li>
       <li>
@@ -246,6 +247,31 @@
   <div class="slide">
     <h1>First Start</h1>
     <img src="images/coupler-first-start.png" alt="First Start" class="border" />
+  </div>
+  <div class="slide">
+    <h1>Terminology</h1>
+    <ul>
+      <li>
+        Project
+        <ul>
+          <li>
+            Resource
+            <ul>
+              <li>Transformation</li>
+            </ul>
+          </li>
+          <li>
+            Scenario
+            <ul>
+              <li>Matcher</li>
+              <li>Comparison</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Connection</li>
+      <li>Transformer</li>
+    </ul>
   </div>
   <div class="slide">
     <h1>Create a Project</h1>
@@ -347,13 +373,20 @@
     <h1>Future Goals</h1>
     <ul class="incremental">
       <li>Installers</li>
-      <li>Probabilistic matching!</li>
       <li>Fixing bugs...</li>
+      <li><strong>Probabilistic matching!</strong></li>
     </ul>
   </div>
   <div class="slide">
     <h1>Thanks!</h1>
     <p><img src="images/computer_problems.png" alt="XKCD comic" /></p>
+    <h3>Links</h3>
+    <ul>
+      <li><a href="http://biostat.mc.vanderbilt.edu/Coupler">http://biostat.mc.vanderbilt.edu/Coupler</a></li>
+      <li><a href="http://github.com/coupler">http://github.com/coupler</a></li>
+      <li><a href="http://coupler.github.com/coupler-presentations">http://coupler.github.com/coupler-presentations</a></li>
+      <li><a href="http://www.youtube.com/vkccoupler">http://www.youtube.com/vkccoupler</a></li>
+    </ul>
   </div>
 </body>
 </html>
