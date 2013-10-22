@@ -1,0 +1,39 @@
+.fallback-message {
+  display: none;
+}
+
+.impress-not-supported .fallback-message {
+  display: block;
+}
+
+.step {
+  width: 1000px;
+  font-size: 48px;
+  line-height: 1.5;
+}
+
+.step:not(.active) {
+  display: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.center table {
+  margin: 0 auto;
+}
+
+table th {
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+
+table td {
+  text-align: left;
+  padding: 5px 50px;
+}
+
+table tr.alt td {
+  background-color: #ccc;
+}
