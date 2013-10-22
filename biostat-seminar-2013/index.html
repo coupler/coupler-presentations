@@ -1,130 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Data Warehousing and Record Linkage Concepts | by Jeremy Stephens</title>
+  <head>
+    <meta charset="utf-8" />
+    <title>Data Warehousing and Record Linkage Concepts | by Jeremy Stephens</title>
 
-  <meta name="description" content="A review of Data Warehousing and Record Linkage concepts." />
-  <meta name="author" content="Jeremy Stephens" />
+    <meta name="description" content="A review of Data Warehousing and Record Linkage concepts." />
+    <meta name="author" content="Jeremy Stephens" />
 
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
 
-  <link href="css/normalize.css" rel="stylesheet" />
-  <link href="css/style.css" rel="stylesheet" />
-</head>
+    <link href="css/normalize.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
 
-<body class="impress-not-supported">
+  <body class="impress-not-supported">
 
-<div class="fallback-message">
-    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
-    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
-</div>
-
-<div id="impress">
-
-    <div id="start" class="step center">
-      <h3>Data Warehousing and Record Linkage Concepts</h3>
-      <p>
-        Jeremy Stephens<br/>
-        Vanderbilt University<br/>
-        Department of Biostatistics<br/>
-        October 23, 2013
-      </p>
+    <div class="fallback-message">
+      <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+      <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
     </div>
 
-    <div class="step center">
-      So you have some data to analyze, great!
-    </div>
+    <div id="impress">
 
-    <div class="step center">
-      What kind of data do you have?
-    </div>
+      <div id="start" class="step center">
+        <h3>Data Warehousing and Record Linkage Concepts</h3>
+        <p>
+          Jeremy Stephens<br/>
+          Vanderbilt University<br/>
+          Department of Biostatistics<br/>
+          October 23, 2013
+        </p>
+      </div>
 
-    <div class="step center">
-      There are two types of data.
+      <div class="step center">
+        So you have some data to analyze, great!
+      </div>
 
-      <!--
+      <div class="step center">
+        What kind of data do you have?
+      </div>
+
+      <div class="step center">
+        There are two types of data.
+
+        <!--
         The way I see it, there are two types of data.
-      -->
+        -->
+      </div>
+
+      <div class="step center">
+        <p class="title">
+          Your Data
+        </p>
+        <img src="images/ducks-in-a-row.jpg" alt="Ducks in a row" data-original="http://blogs.lynn.edu/newtoknighthood/2011/10/06/are-all-your-ducks-in-a-row/" />
+      </div>
+
+      <div class="step center">
+        <p class="title">
+          Someone Else's Data
+        </p>
+        <img src="images/messy-room.jpg" alt="Messy room" style="width: auto; height: 570px;" data-original="http://humoroutcasts.com/2012/americans-spend-an-average-13-hours-a-week-cleaning-women-bring-that-average-up-men-bring-it-down/" />
+      </div>
+
+      <div class="step center">
+        <p class="title">
+          Cleaning data by hand
+        </p>
+        <img src="images/forrest-bubba.png" alt="Forrest and Bubba cleaning the floor" data-original="http://thefilmspectrum.com/?p=4604" />
+      </div>
+
+      <div class="step center">
+        <p class="title">
+          Data Warehousing
+        </p>
+        <img src="images/warehouse.jpg" alt="Hangar 51" data-original="http://indianajones.wikia.com/wiki/Hangar_51" />
+        <!--
+        A data warehouse is a central repository of data which is
+        created by integrating data from one or more disparate
+        sources.
+        -->
+      </div>
+
+      <div class="step center">
+        <img src="images/business.jpg" alt="Business!" />
+      </div>
+
+      <div class="step center">
+        <p class="title">
+          Decision making
+        </p>
+        <img src="images/decision.png" alt="Decision making" data-original="http://www.criticalcommons.org/Members/ccManager/clips/a-recalcitrant-supercomputer-defies-its-operator-in-willy-wonka-and-the-chocolate-factory" />
+      </div>
+
+      <div class="step center">
+        <p class="title">
+          Terms
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Business</th>
+              <th>Statistics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fact</td>
+              <td>Measurement</td>
+            </tr>
+            <tr class="alt">
+              <td>Dimension</td>
+              <td>Label</td>
+            </tr>
+            <tr>
+              <td>Slicing</td>
+              <td>Subsetting</td>
+            </tr>
+            <tr class="alt">
+              <td>Dicing</td>
+              <td>Grouping</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="step center">
+        <img src="images/no-idea.jpg" alt="Business is confusing" />
+      </div>
+
+      <div class="step center">
+        <p class="title">Extract, Transform, and Load</p>
+      </div>
+
+      <div class="step center">
+        <p class="title"><strong>Extract</strong></p>
+        <p>
+          Pulling data from one or more data sources.
+        </p>
+      </div>
+
+      <div class="step center">
+        <p class="title"><strong>Transform</strong></p>
+        <p>
+          Cleaning, converting, and merging data.
+        </p>
+      </div>
+
+      <div class="step center">
+        <p class="title"><strong>Load</strong></p>
+        <p>
+          Put the data into its final structure.
+        </p>
+      </div>
+
+      <div class="step center">
+        <p class="title">ETL example</p>
+        <table class="csv">
+          <thead>
+            <tr>
+              <th>my-data.csv</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>id,name,dob
+1,George Jetson,2022-05-12
+2,Jane Jetson,2015-01-23
+3,Judy Jetson,2047-10-05</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="csv">
+          <thead>
+            <tr>
+              <th>their-data.csv</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>id,firstname,lastname,height,weight
+4,George,Jetson,70,185
+5,Jane,Jetson,65,140
+6,Judy,Jetson,58,115</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="step center">
+        <p class="title">Commence extraction phase!</p>
+      </div>
+
+      <div class="step center">
+        <pre>> x <- read.csv('my-data.csv')
+> x
+  id          name        dob
+1  1 George Jetson 2022-05-12
+2  2   Jane Jetson 2015-01-23
+3  3   Judy Jetson 2047-10-05</pre>
+      </div>
+
+      <div class="step center">
+        <pre>> y <- read.csv('their-data.csv')
+> y
+  id firstname lastname height weight
+1  4    George   Jetson     70    185
+2  5      Jane   Jetson     65    140
+3  6      Judy   Jetson     58    115</pre>
+      </div>
+
+      <div class="step center">
+        <p class="title">Extraction phase complete!</p>
+        <img src="images/easy.jpg" alt="Easy button" />
+      </div>
+
+      <div class="step center">
+        <p class="title"><strong>ET</strong>he<strong>L</strong></p>
+        <img src="images/ethel.jpg" alt="Ethel" data-original="http://prince.org/msg/100/394932" />
+        <p>
+          <small><a href="https://github.com/coupler/ethel">https://github.com/coupler/ethel</a></small>
+        </p>
+      </div>
+
     </div>
 
-    <div class="step center">
-      <p>
-        Your Data
-      </p>
-      <img src="images/ducks-in-a-row.jpg" alt="Ducks in a row" data-original="http://blogs.lynn.edu/newtoknighthood/2011/10/06/are-all-your-ducks-in-a-row/" />
-    </div>
+    <script src="js/impress.js"></script>
+    <script>impress().init();</script>
 
-    <div class="step center">
-      <p>
-        Someone Else's Data
-      </p>
-      <img src="images/messy-room.jpg" alt="Messy room" style="width: auto; height: 570px;" data-original="http://humoroutcasts.com/2012/americans-spend-an-average-13-hours-a-week-cleaning-women-bring-that-average-up-men-bring-it-down/" />
-    </div>
-
-    <div class="step center">
-      <p>
-        Cleaning data by hand
-      </p>
-      <img src="images/forrest-bubba.png" alt="Forrest and Bubba cleaning the floor" data-original="http://thefilmspectrum.com/?p=4604" />
-    </div>
-
-    <div class="step center">
-      <p>
-        Data Warehousing
-      </p>
-      <img src="images/warehouse.jpg" alt="Hangar 51" data-original="http://indianajones.wikia.com/wiki/Hangar_51" />
-      <!--
-        A data warehouse is a central repository of data which is created by
-        integrating data from one or more disparate sources.
-      -->
-    </div>
-
-    <div class="step center">
-      <img src="images/business.jpg" alt="Business!" />
-    </div>
-
-    <div class="step center">
-      <p>
-        Decision making
-      </p>
-      <img src="images/decision.png" alt="Decision making" data-original="http://www.criticalcommons.org/Members/ccManager/clips/a-recalcitrant-supercomputer-defies-its-operator-in-willy-wonka-and-the-chocolate-factory" />
-    </div>
-
-    <div class="step center">
-      <p>Terms</p>
-      <table>
-        <thead>
-          <tr>
-            <th>Business</th>
-            <th>Statistics</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Fact</td>
-            <td>Measurement</td>
-          </tr>
-          <tr class="alt">
-            <td>Dimension</td>
-            <td>Label</td>
-          </tr>
-          <tr>
-            <td>Slicing</td>
-            <td>Subsetting</td>
-          </tr>
-          <tr class="alt">
-            <td>Dicing</td>
-            <td>Grouping</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-</div>
-
-<script src="js/impress.js"></script>
-<script>impress().init();</script>
-
-</body>
+  </body>
 </html>

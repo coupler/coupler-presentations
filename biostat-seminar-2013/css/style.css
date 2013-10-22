@@ -16,6 +16,10 @@
   display: none;
 }
 
+.step p.title {
+  margin-top: 0;
+}
+
 .center {
   text-align: center;
 }
@@ -27,6 +31,7 @@
 table th {
   text-align: center;
   border-bottom: 2px solid black;
+  padding: 5px 50px;
 }
 
 table td {
@@ -36,4 +41,45 @@ table td {
 
 table tr.alt td {
   background-color: #ccc;
+}
+
+table.data {
+  font-size: 0.8em;
+  margin-bottom: 20px;
+}
+
+table.data th,
+table.data td {
+  padding: 0 5px;
+  white-space: pre;
+  border: 2px solid black;
+}
+
+table.csv {
+  font-size: 0.8em;
+  margin-bottom: 20px;
+}
+
+table.csv th,
+table.csv td {
+  padding: 0 5px;
+  white-space: pre;
+  border: 2px solid black;
+}
+
+table.csv td {
+  white-space: pre;
+  font-family: monospace;
+  text-align: left;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: navy;
+}
+
+pre {
+  text-align: left;
+  font-size: 0.8em;
+  border: 1px solid black;
 }
