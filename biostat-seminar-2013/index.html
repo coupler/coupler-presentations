@@ -10,6 +10,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
 
     <link href="css/normalize.css" rel="stylesheet" />
+    <link href="css/pygments.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
   </head>
 
@@ -67,6 +68,7 @@
           Cleaning data by hand
         </p>
         <img src="images/forrest-bubba.png" alt="Forrest and Bubba cleaning the floor" data-original="http://thefilmspectrum.com/?p=4604" />
+        <div class="caption">Forrest Gump</div>
       </div>
 
       <div class="step center">
@@ -74,6 +76,7 @@
           Data warehousing
         </p>
         <img src="images/warehouse.jpg" alt="Hangar 51" data-original="http://indianajones.wikia.com/wiki/Hangar_51" />
+        <div class="caption">Raiders of the Lost Ark</div>
         <!--
         A data warehouse is a central repository of data which is
         created by integrating data from one or more disparate
@@ -83,6 +86,7 @@
 
       <div class="step center">
         <img src="images/business.jpg" alt="Business!" />
+        <div class="caption">Internet meme</div>
       </div>
 
       <div class="step center">
@@ -90,6 +94,7 @@
           Decision making
         </p>
         <img src="images/decision.png" alt="Decision making" data-original="http://www.criticalcommons.org/Members/ccManager/clips/a-recalcitrant-supercomputer-defies-its-operator-in-willy-wonka-and-the-chocolate-factory" />
+        <div class="caption">Charlie and the Chocolate Factory</div>
       </div>
 
       <div class="step center">
@@ -126,6 +131,7 @@
 
       <div class="step center">
         <img src="images/no-idea.jpg" alt="Business is confusing" />
+        <div class="caption">Internet meme</div>
       </div>
 
       <div class="step center">
@@ -216,6 +222,7 @@
       <div class="step center">
         <p class="title">Extraction phase complete.</p>
         <img src="images/easy.jpg" alt="Easy button" />
+        <div class="caption">Staples</div>
       </div>
 
       <div class="step center">
@@ -286,6 +293,8 @@
 
       <div class="step center">
         <p class="title">That's it!</p>
+        <img src="images/better.png" alt="Better than expected" />
+        <div class="caption">Internet meme</div>
       </div>
 
       <div class="step center">
@@ -310,12 +319,272 @@
       </div>
 
       <div class="step center">
+        <p class="title">What do you do?</p>
+        <img src="images/speed.jpg" alt="What do you do?" />
+        <div class="caption">Speed</div>
+      </div>
+
+      <div class="step center">
         <p class="title"><strong>ET</strong>he<strong>L</strong></p>
         <img src="images/ethel.jpg" alt="Ethel" data-original="http://prince.org/msg/100/394932" />
+        <div class="caption">I Love Lucy</div>
         <p>
-          <small><a href="https://github.com/coupler/ethel">https://github.com/coupler/ethel</a></small>
+          <a href="https://github.com/coupler/ethel">https://github.com/coupler/ethel</a>
         </p>
       </div>
+
+      <div class="step center">
+        <p class="title">How it works</p>
+      </div>
+
+      <div class="step center">
+        <p class="title">Universal adapter</p>
+        <img src="images/adapter.jpg" alt="Universal adapter" data-original="http://fffff.at/free-universal-construction-kit/" />
+      </div>
+
+      <div class="step center">
+        <p class="title">Error handling</p>
+        <img src="images/errors.png" alt="Error handling" data-original="http://hyperboleandahalf.blogspot.com/2010/06/this-is-why-ill-never-be-adult.html" />
+        <div class="caption">Hyperbole and a Half</div>
+        <p>
+          <a href="https://github.com/coupler/csv_parser">https://github.com/coupler/csv_parser</a>
+        </p>
+      </div>
+
+      <div class="step center">
+        <p class="title">Transformations</p>
+        <img src="images/butterfly.jpg" alt="Butterfly transforming" data-original="http://www.todayifoundout.com/index.php/2011/10/caterpillars-melt-almost-completely-before-growing-into-butterflies-in-the-chrysalis/" />
+      </div>
+
+      <div class="step center">
+        <p class="title">Transformations (cont.)</p>
+        <ul style="width: 700px;">
+          <li>Convert data types</li>
+          <li>Merge datasets</li>
+          <li>Rename/filter fields</li>
+          <li>Custom per-row code execution</li>
+        </ul>
+      </div>
+
+      <div class="step center">
+        <p class="title">Caution</p>
+        <img src="images/dumb.jpg" alt="Dumb and dumber" />
+        <div class="caption">Dumb and Dumber</div>
+      </div>
+
+      <div class="step center">
+        <p class="title">Principle of least surprise</p>
+        <img src="images/grumpy-fun.jpg" alt="Grumpy cat" />
+        <div class="caption">Internet meme</div>
+      </div>
+
+      <div class="step center">
+        <pre>> x <- read.csv("my-data.csv")
+> str(x)
+'data.frame':   3 obs. of  3 variables:
+ $ id  : int  1 2 3
+ $ name: Factor w/ 3 levels "George Jetson",..: 1 2 3
+ $ dob : Factor w/ 3 levels "2022-05-12","2029-01-23",..: 1 2 3</pre>
+      </div>
+
+      <div class="step center">
+        <img src="images/surprise.jpg" alt="Surprise!" />
+      </div>
+
+      <div class="step center">
+        <p class="title">Ethel Example</p>
+<div class="highlight"><pre><span class="n">reader</span> <span class="o">=</span> <span class="ss">Ethel</span><span class="p">:</span><span class="ss">:Reader</span><span class="o">[</span><span class="s1">&#39;csv&#39;</span><span class="o">].</span><span class="n">new</span><span class="p">({</span>
+  <span class="ss">file</span><span class="p">:</span> <span class="s1">&#39;my-data.csv&#39;</span>
+<span class="p">})</span>
+<span class="n">writer</span> <span class="o">=</span> <span class="ss">Ethel</span><span class="p">:</span><span class="ss">:Writer</span><span class="o">[</span><span class="s1">&#39;csv&#39;</span><span class="o">].</span><span class="n">new</span><span class="p">({</span>
+  <span class="ss">file</span><span class="p">:</span> <span class="s1">&#39;dataset.csv&#39;</span>
+<span class="p">})</span>
+<span class="n">m</span> <span class="o">=</span> <span class="ss">Ethel</span><span class="p">:</span><span class="ss">:Migration</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
+</pre></div>
+      </div>
+
+      <div class="step center">
+        <p class="title">Migration</p>
+        <img src="images/migration.jpg" alt="Birds migrating" data-original="http://backyardnaturalist.ca/?page_id=702" />
+      </div>
+
+      <div class="step center">
+        <p class="title">Split up full name</p>
+<div class="highlight"><pre><span class="n">m</span><span class="o">.</span><span class="n">add_field</span><span class="p">(</span><span class="s1">&#39;firstname&#39;</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_field</span><span class="p">(</span><span class="s1">&#39;lastname&#39;</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">update</span> <span class="k">do</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span>
+  <span class="n">row</span><span class="o">[</span><span class="s1">&#39;firstname&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">row</span><span class="o">[</span><span class="s1">&#39;lastname&#39;</span><span class="o">]</span> <span class="o">=</span>
+    <span class="n">row</span><span class="o">[</span><span class="s1">&#39;name&#39;</span><span class="o">].</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+      </div>
+
+      <div class="step center">
+        <p class="title">Select fields</p>
+<div class="highlight"><pre><span class="n">m</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="o">[</span><span class="s1">&#39;firstname&#39;</span><span class="p">,</span> <span class="s1">&#39;lastname&#39;</span><span class="p">,</span> <span class="s1">&#39;dob&#39;</span><span class="o">]</span><span class="p">)</span>
+</div>
+      </div>
+
+      <div class="step center">
+        <p class="title">Process their data</p>
+<div class="highlight"><pre><span class="n">reader_2</span> <span class="o">=</span> <span class="ss">Ethel</span><span class="p">:</span><span class="ss">:Reader</span><span class="o">[</span><span class="s1">&#39;csv&#39;</span><span class="o">].</span><span class="n">new</span><span class="p">({</span>
+  <span class="ss">file</span><span class="p">:</span> <span class="s1">&#39;their-data.csv&#39;</span>
+<span class="p">})</span>
+<span class="n">writer_2</span> <span class="o">=</span> <span class="ss">Ethel</span><span class="p">:</span><span class="ss">:Writer</span><span class="o">[</span><span class="s1">&#39;memory&#39;</span><span class="o">].</span><span class="n">new</span>
+<span class="n">m2</span> <span class="o">=</span> <span class="ss">Ethel</span><span class="p">:</span><span class="ss">:Migration</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">reader_2</span><span class="p">,</span> <span class="n">writer_2</span><span class="p">)</span>
+</pre></div>
+      </div>
+
+      <div class="step center">
+        <img src="images/not-sure.jpg" alt="Not sure if this is better" />
+        <div class="caption">Futurama</div>
+      </div>
+
+      <div class="step center">
+        <p class="title">Select fields</p>
+<div class="highlight"><pre><span class="n">m2</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="o">[</span><span class="s1">&#39;firstname&#39;</span><span class="p">,</span> <span class="s1">&#39;lastname&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="o">]</span><span class="p">)</span>
+<span class="n">m2</span><span class="o">.</span><span class="n">run</span>
+</pre></div>
+      </div>
+
+
+      <div class="step center">
+        <p class="title">Merge datasets</p>
+<div class="highlight"><pre><span class="n">reader_3</span> <span class="o">=</span> <span class="ss">Ethel</span><span class="p">:</span><span class="ss">:Reader</span><span class="o">[</span><span class="s1">&#39;memory&#39;</span><span class="o">].</span><span class="n">new</span><span class="p">({</span>
+  <span class="ss">data</span><span class="p">:</span> <span class="n">writer_2</span><span class="o">.</span><span class="n">data</span>
+<span class="p">})</span>
+<span class="n">m</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">reader_3</span><span class="p">,</span>
+  <span class="o">[</span><span class="s1">&#39;firstname&#39;</span><span class="p">,</span> <span class="s1">&#39;lastname&#39;</span><span class="o">]</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">run</span>
+</pre></div>
+      </div>
+
+      <div class="step center">
+        <p class="title">Tada!</p>
+        <img src="images/tada.jpg" alt="Mickey Mouse" />
+        <div class="caption">Disney</div>
+      </div>
+
+      <div class="step center">
+        <img src="images/grumpy.jpg" alt="Grumpy Cat" />
+        <div class="caption">Internet meme</div>
+      </div>
+
+      <div class="step center">
+        <p class="title">Part of the whole</p>
+        <img src="images/cog.jpg" alt="Cog" />
+        <div class="caption"><a href="http://commons.wikimedia.org/wiki/File:2010-10-30_Geeste,_Moormuseum_032_(5207510676).jpg">Photo by Allie Caulfield</a></div>
+      </div>
+
+      <div class="step center">
+        <p class="title">Coupler</p>
+        <img src="images/coupler.jpg" alt="Train coupler" />
+        <div class="caption"><a href="http://commons.wikimedia.org/wiki/File:Russian_SA-3_railway_coupler_101_1572.jpg">Photo by Martin Hawlisch</a></div>
+        <p>
+          <a href="https://github.com/coupler/coupler">https://github.com/coupler/coupler</a>
+        </p>
+      </div>
+
+      <div class="step center">
+        <p class="title">Why make Coupler?</p>
+      </div>
+
+      <div class="step center">
+        <p class="title">Record Linkage!</p>
+      </div>
+
+      <div class="step center">
+        <p class="title">What is it?</p>
+        <img src="images/aliens.jpg" alt="Ancient Aliens" />
+        <div class="caption">Ancient Aliens</div>
+      </div>
+
+      <div class="step center">
+        <p class="title">Two linkage categories</p>
+        <ul style="width: 300px;">
+          <li>Deterministic</li>
+          <li>Probabilistic</li>
+        </ul>
+      </div>
+
+      <div class="step center">
+        <p class="title">Linkage algorithms</p>
+        <ul style="width: 500px;">
+          <li style="color: green;">Sound algorithms</li>
+          <li style="color: red;">Levenshtein distance</li>
+          <li style="color: red;">Numeric comparison</li>
+        </ul>
+      </div>
+
+      <div class="step center">
+        <p class="title">Two algorithm categories</p>
+        <ul style="width: 600px;">
+          <li>Transforming and equality</li>
+          <li>Comparing each record</li>
+        </ul>
+      </div>
+
+      <div class="step center">
+        <p class="title">Linkage</p>
+        <img src="images/sausage-links.jpg" alt="Sausage links" />
+        <div class="caption">Sausage links</div>
+        <p>
+          <a href="https://github.com/coupler/linkage">https://github.com/coupler/linkage</a>
+        </p>
+      </div>
+
+      <div class="step center">
+        <p class="title">Linkage example</p>
+<div class="highlight"><pre><span class="n">parents</span> <span class="o">=</span> <span class="ss">Linkage</span><span class="p">:</span><span class="ss">:Dataset</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
+  <span class="s1">&#39;postgres://example.com/foo&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;parents&#39;</span><span class="p">)</span>
+<span class="n">children</span> <span class="o">=</span> <span class="ss">Linkage</span><span class="p">:</span><span class="ss">:Dataset</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
+  <span class="s1">&#39;mysql://some-other-host.net/bar&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+      </div>
+
+      <div class="step center">
+<div class="highlight"><pre><span class="n">config</span> <span class="o">=</span> <span class="n">parents</span><span class="o">.</span><span class="n">link_with</span><span class="p">(</span><span class="n">children</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">lhs</span><span class="o">[</span><span class="ss">:first_name</span><span class="o">].</span><span class="n">must</span> <span class="o">==</span>
+    <span class="n">rhs</span><span class="o">[</span><span class="ss">:parent_first_name</span><span class="o">]</span>
+  <span class="n">lhs</span><span class="o">[</span><span class="ss">:last_name</span><span class="o">].</span><span class="n">must</span> <span class="o">==</span>
+    <span class="n">rhs</span><span class="o">[</span><span class="ss">:parent_last_name</span><span class="o">]</span>
+  <span class="n">lhs</span><span class="o">[</span><span class="ss">:last_name</span><span class="o">].</span><span class="n">must_not</span> <span class="o">==</span>
+    <span class="s2">&quot;Smith&quot;</span>
+  <span class="n">save_results_in</span><span class="p">(</span><span class="s1">&#39;sqlite://results.db&#39;</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+      </div>
+
+      <div class="step center">
+        <p class="title"><strong>Thanks!</strong></p>
+        <img src="images/thanks.jpg" alt="My Little Pony" />
+        <div class="caption">My Little Pony</div>
+        <p>
+          <a href="http://coupler.github.io/coupler-presentations/biostat-seminar-2013/">http://coupler.github.io/coupler-presentations/biostat-seminar-2013/</a>
+        </p>
+      </div>
+
+      <div class="step center">
+        <p class="title"><strong>Acknowledgements</strong></p>
+        <ul style="width: 350px;">
+          <li>Richard Urbano</li>
+          <li>Cole Beck</li>
+        </ul>
+      </div>
+
+      <div class="step center">
+        <p class="title"><strong>Book</strong></p>
+        <p>
+          International Review of Research in Developmental Disabilities Volume 45
+        </p>
+        <p>
+          <a href="http://www.sciencedirect.com/science/bookseries/22116095/45">Info link</a>
+        </p>
+      </div>
+
     </div>
 
     <script src="js/impress.js"></script>

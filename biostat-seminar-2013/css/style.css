@@ -29,7 +29,7 @@
 }
 
 .center ul {
-  margin: 0 175px;
+  margin: 0 auto;
   width: 650px;
 }
 
@@ -91,4 +91,9 @@ pre {
   text-align: left;
   font-size: 0.8em;
   border: 1px solid black;
+}
+
+div.caption {
+  font-size: 0.4em;
+  font-style: italic;
 }
