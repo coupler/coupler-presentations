@@ -28,6 +28,15 @@
   margin: 0 auto;
 }
 
+.center ul {
+  margin: 0 175px;
+  width: 650px;
+}
+
+.center ul li {
+  text-align: left;
+}
+
 table th {
   text-align: center;
   border-bottom: 2px solid black;

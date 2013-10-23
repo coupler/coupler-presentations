@@ -154,7 +154,7 @@
       </div>
 
       <div class="step center">
-        <p class="title">Extraction example</p>
+        <p class="title">Simplistic example</p>
         <table class="csv">
           <thead>
             <tr>
@@ -188,11 +188,13 @@
       </div>
 
       <div class="step center">
-        <p class="title">Commence extraction phase!</p>
+        <p class="title">Begin extraction phase!</p>
       </div>
 
       <div class="step center">
-        <pre>> x <- read.csv('my-data.csv')
+        <p class="title">Read in my data</p>
+        <pre>> x <- read.csv('my-data.csv',
++   as.is = TRUE)
 > x
   id          name        dob
 1  1 George Jetson 2022-05-12
@@ -201,7 +203,9 @@
       </div>
 
       <div class="step center">
-        <pre>> y <- read.csv('their-data.csv')
+        <p class="title">Read in their data</p>
+        <pre>> y <- read.csv('their-data.csv',
++   as.is = TRUE)
 > y
   id firstname lastname height weight
 1  4    George   Jetson     70    185
@@ -210,8 +214,99 @@
       </div>
 
       <div class="step center">
-        <p class="title">Extraction phase complete!</p>
+        <p class="title">Extraction phase complete.</p>
         <img src="images/easy.jpg" alt="Easy button" />
+      </div>
+
+      <div class="step center">
+        <p class="title">Transformation phase</p>
+      </div>
+
+      <div class="step center">
+        <p class="title">Split up full name</p>
+        <pre>> name.split <- strsplit(x$name, " ")
+> x$firstname <- sapply(name.split,
++   function(v) v[1])
+> x$lastname <- sapply(name.split,
++   function(v) v[2])</pre>
+      </div>
+
+      <div class="step center">
+        <p class="title">Merge datasets</p>
+        <pre>> dataset <- merge(x, y,
++   by = c("firstname", "lastname"))
+> dataset
+  firstname lastname id.x          name
+1    George   Jetson    1 George Jetson
+2      Jane   Jetson    2   Jane Jetson
+3      Judy   Jetson    3   Judy Jetson
+         dob id.y height weight
+1 2022-05-12    4     70    185
+2 2029-01-23    5     65    140
+3 2047-10-05    6     58    115</pre>
+      </div>
+
+      <div class="step center">
+        <p class="title">Select fields</p>
+        <pre>> fields <- c("firstname", "lastname",
++   "dob", "height", "weight")
+> dataset <- dataset[, fields]</pre>
+      </div>
+
+      <div class="step center">
+        <p class="title">Calculate age</p>
+        <pre>> now <- as.Date("2062-10-23")
+> dob.date <- as.Date(dataset$dob)
+> age.days <- as.numeric(
++   difftime(now, dob.date))
+> dataset$age <- age.days %/% 365.25</pre>
+      </div>
+
+      <div class="step center">
+        <p class="title">Final dataset</p>
+        <pre>> dataset
+  firstname lastname        dob height
+1    George   Jetson 2022-05-12     70
+2      Jane   Jetson 2029-01-23     65
+3      Judy   Jetson 2047-10-05     58
+  weight age
+1    185  40
+2    140  33
+3    115  15</pre>
+      </div>
+
+      <div class="step center">
+        <p class="title">Load phase</p>
+      </div>
+
+      <div class="step center">
+        <p class="title">Save the dataset</p>
+        <pre>> save(dataset, file="dataset.Rdata")</pre>
+      </div>
+
+      <div class="step center">
+        <p class="title">That's it!</p>
+      </div>
+
+      <div class="step center">
+        <p class="title">If only it were that easy.</p>
+      </div>
+
+      <div class="step center">
+        <p class="title">Malformed data</p>
+        <pre>id,name,dob,
+1,"George" Jetson,2022-05-12
+2,Jane Jetson,2029-01-23,,
+3,"Judy Jetson,2047-10-05,</pre>
+      </div>
+
+      <div class="step center">
+        <p class="title">Disparate sources and different destinations</p>
+        <ul>
+          <li>Databases</li>
+          <li>Web services (i.e. REDCap)</li>
+          <li>Flat files in different formats</li>
+        </ul>
       </div>
 
       <div class="step center">
@@ -221,7 +316,6 @@
           <small><a href="https://github.com/coupler/ethel">https://github.com/coupler/ethel</a></small>
         </p>
       </div>
-
     </div>
 
     <script src="js/impress.js"></script>
